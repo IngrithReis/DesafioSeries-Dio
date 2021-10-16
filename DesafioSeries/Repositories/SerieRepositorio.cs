@@ -2,6 +2,7 @@
 using DesafioSeries.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -18,6 +19,7 @@ namespace DesafioSeries
 
         public void Exclui(int id)
         {   // no caso de uso do ".Removeat(id), iria haver realocação dos outros indíces e os índices da lista iriam ser alterada"
+            // soft delete
 
             _series[id].Exclui();
         }
@@ -41,5 +43,10 @@ namespace DesafioSeries
         {
             return _series[Id];
         }
+        public List<Serie> RetornaExcluido()
+        {
+            return _series.Where(x => x.Excluido == true).ToList();
+        }
+        
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DesafioSeries.Enum
+namespace DesafioSeries.Tipos
 {
     public enum Genero
 

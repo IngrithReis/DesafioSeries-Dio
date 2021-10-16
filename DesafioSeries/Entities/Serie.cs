@@ -1,4 +1,4 @@
-﻿using DesafioSeries.Enum;
+﻿using DesafioSeries.Tipos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,52 +7,48 @@ namespace DesafioSeries.Entities
 {
     public class Serie : EntidadeBase
     {
-        private Genero _genero { get; set; }
-        private string _titulo { get; set; }
+        public Genero Genero { get;  set; }
+        public string Titulo { get; set; }
 
-        private string _descricao { get; set; }
+        public string Descricao { get; set; }
 
-        private int _ano { get; set; }
+        public int Ano { get; set; }
 
-        private bool _excluido { get; set; }
+        public bool Excluido { get; set; }
 
-        public Serie(Genero genero, string titulo, string descricao, int ano, int id) 
+        public Serie(int id, Genero genero, string titulo, string descricao, int ano) 
         {
             Id = id;
-            _genero = genero;
-            _titulo = titulo;
-            _descricao = descricao;
-            _ano = ano;
-            _excluido = false;
+            Genero = genero;
+            Titulo = titulo;
+            Descricao = descricao;
+            Ano = ano;
+            Excluido = false;
         }
-
+        
         public override string ToString()
         {
             
             string retorno = "";
+            var console = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
-            retorno += $"Gênero: {_genero}\n";
-            retorno += $"Título: {_titulo} \n";
-            retorno += $"Descrição: {_descricao} \n";
-            retorno += $"Ano de Início: {_ano} \n";
+            retorno += $"Gênero: {Genero}\n";
+            retorno += $"Título: {Titulo} \n";
+            retorno += $"Descrição: {Descricao} \n";
+            retorno += $"Ano de Início: {Ano} \n";
+            Console.BackgroundColor = console;
             Console.Clear();
 
             return retorno; 
         }
 
-        public string RetornaTitulo()
-        {
-            return _titulo;
-        }
-        public int RetornaId()
-        {
-            return Id;
-        }
+        
 
         public void Exclui()
         {
-            _excluido = true;
+            Excluido = true;
         }
+       
     }
 }
